@@ -37,10 +37,15 @@ namespace OpticaApi.Controllers
             return Ok(lista);
         }
 
-        [HttpPost]
-        public ActionResult<Compra> Create(Compra compra)
+        [HttpGet("{idUsuario}/{idGafa}/{compra}")]
+        public ActionResult<Compra> Create(string idUsuario, string idGafa, string compra)
         {
-            _compraService.Create(compra);
+            Compra nuevaCompra = new Compra();
+            nuevaCompra.id_gafa = idGafa;
+            nuevaCompra.id_usuario = idUsuario;
+            nuevaCompra.pago = compra;
+
+            _compraService.Create(nuevaCompra);
 
             return Content("Creado");
         }
