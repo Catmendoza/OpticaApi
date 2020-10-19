@@ -39,7 +39,7 @@ namespace OpticaApi.Controllers
 
             if (existe)
             {
-                return Content("Correcto");
+                return Content(correo);
             }
             else
             {
